@@ -1,0 +1,27 @@
+{
+  "name": "react-timesheet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "example:start": "webpack --config=examples/webpack.config.js -v --progress",
+    "example:watch": "webpack --config=examples/webpack.config.js -v --progress -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "moment": "^2.15.1",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-draggable": "^2.2.2",
+    "react-resizable": "^1.4.5"
+  },
+  "devDependencies": {
+    "buble": "^0.14.0",
+    "buble-loader": "^0.3.1",
+    "webpack": "^2.1.0-beta.25"
+  }
+}
