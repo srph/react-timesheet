@@ -26,6 +26,7 @@
   position: relative;
   width: 125px;
   border-right: 1px solid #ddd;
+  z-index: 699;
 }
 
 .timesheet__column--narrow {
@@ -74,4 +75,45 @@
   cursor: ns-resize;
   opacity: 0;
   transition: 0.2s opacity;
+}
+
+.timesheet__popover {
+  position: absolute;
+  padding: 10px;
+  height: 150px;
+  width: 250px;
+  margin-left: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  z-index: 700;
+}
+
+.timesheet__popover::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -21px;
+  top: 70px;
+  border: 10px solid transparent;
+  border-right-color: #ddd;
+}
+
+.timesheet__popover::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -20px;
+  top: 70px;
+  border: 10px solid transparent;
+  border-right-color: #fff;
+}
+
+.form-input {
+  display: block;
+  padding: 8px 5px;
+  margin: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
 }
