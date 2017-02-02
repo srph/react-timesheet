@@ -1,17 +1,20 @@
 ## React Timesheet
 [WIP] Timesheets for you, and you, and for everybody!
 
+## Note
+No plans to make this flexible. Rather, you can *fork* or get examples from this project!
+
 ## Features
 Currently ad-hoc for a private school application I'm working on.
 
-- [x] Async persistence
-- [ ] Async fetch
-- [ ] Handle loading
-- [ ] Handle errors
 - [x] New schedule
 - [x] Edit schedule
 - [x] Drag-n-drop schedule
 - [x] Typehead
+- [ ] Async persistence
+- [ ] Async fetch
+- [ ] Handle loading
+- [ ] Handle errors
 
 ## Installing
 ```bash
