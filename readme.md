@@ -2,7 +2,7 @@
 [WIP] Timesheets for you, and you, and for everybody!
 
 ## Note
-No plans to make this flexible. Rather, you can *fork* or get examples from this project!
+No plans to make this flexible. Rather, you can *fork* or get ideas from this project!
 
 ## Features
 Currently ad-hoc for a private school application I'm working on.
