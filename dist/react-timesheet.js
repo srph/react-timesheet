@@ -40513,7 +40513,7 @@ var Timesheet = (function (superclass) {
               schedules[day].map(function (schedule, ii) { return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( __WEBPACK_IMPORTED_MODULE_1_react_draggable__["DraggableCore"], {
                   allowAnyClick: true, grid: [width, height], cancel: ".draggable-cancel", onStart: this$1.handleDragStart(day, ii), onDrag: this$1.handleDrag.bind(this$1), onStop: this$1.handleDragStop.bind(this$1), key: ii }, 
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { onDoubleClick: this$1.handleEdit(day, ii), className: "timesheet__overlay", style: {
-                      transform: ("translateY(" + (width * times.findIndex(function (time) { return time.start.isSame(schedule.start); })) + "px)"),
+                      transform: ("translateY(" + (height * times.findIndex(function (time) { return time.start.isSame(schedule.start); })) + "px)"),
                       height: height * __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__getIncrementDifference__["a" /* default */])(schedule.start, schedule.end, this$1.props.time.increment)
                     } }, 
 
