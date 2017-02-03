@@ -91,13 +91,26 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 10px;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 12px;
   cursor: ns-resize;
   opacity: 0;
-  transition: 0.2s opacity;
+  transition: 0.2s opacity;;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.timesheet__overlay-resizer::before,
+.timesheet__overlay-resizer::after {
+  content: "";
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20px;
+  height: 1px;
+  background: #ddd;
+}
+
+.timesheet__overlay-resizer::before {
+  margin-bottom: 5px;
 }
 
 .timesheet__popover {
