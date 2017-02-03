@@ -4752,15 +4752,8 @@ module.exports = reactProdInvariant;
 /***/ function(module, exports) {
 
 "use strict";
-/*
-object-assign
-(c) Sindre Sorhus
-@license MIT
-*/
-
 'use strict';
 /* eslint-disable no-unused-vars */
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 var propIsEnumerable = Object.prototype.propertyIsEnumerable;
 
@@ -4781,7 +4774,7 @@ function shouldUseNative() {
 		// Detect buggy property enumeration order in older V8 versions.
 
 		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+		var test1 = new String('abc');  // eslint-disable-line
 		test1[5] = 'de';
 		if (Object.getOwnPropertyNames(test1)[0] === '5') {
 			return false;
@@ -4810,7 +4803,7 @@ function shouldUseNative() {
 		}
 
 		return true;
-	} catch (err) {
+	} catch (e) {
 		// We don't expect any of the above to throw, but better to be safe.
 		return false;
 	}
@@ -4830,8 +4823,8 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 			}
 		}
 
-		if (getOwnPropertySymbols) {
-			symbols = getOwnPropertySymbols(from);
+		if (Object.getOwnPropertySymbols) {
+			symbols = Object.getOwnPropertySymbols(from);
 			for (var i = 0; i < symbols.length; i++) {
 				if (propIsEnumerable.call(from, symbols[i])) {
 					to[symbols[i]] = from[symbols[i]];
@@ -40489,58 +40482,58 @@ var Timesheet = (function (superclass) {
     var edit = ref.edit;
 
     return (
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet" }, 
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet__heading" }, 
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet__heading-column timesheet__heading-column--narrow" }, "Time"), 
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet" },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet__heading" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet__heading-column timesheet__heading-column--narrow" }, "Time"),
 
           Object.keys(schedules).map(function (schedule, i) { return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet__heading-column", key: i }, schedule); }
           )
-        ), 
+        ),
 
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet__body" }, 
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet__column timesheet__column--narrow" }, 
-            times.map(function (time, i) { return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet__item", key: i }, 
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet__body" },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet__column timesheet__column--narrow" },
+            times.map(function (time, i) { return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet__item", key: i },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet__time" }, time.start.format('hh:mm a'), " - ", time.end.format('hh:mm a'))
               ); }
             )
-          ), 
+          ),
 
-          Object.keys(schedules).map(function (day, i) { return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet__column", key: i }, 
+          Object.keys(schedules).map(function (day, i) { return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet__column", key: i },
               times.map(function (time, ii) { return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet__item", onDoubleClick: this$1.handleCreate(day, ii), key: ii }
                 ); }
-              ), 
+              ),
 
               schedules[day].map(function (schedule, ii) { return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( __WEBPACK_IMPORTED_MODULE_1_react_draggable__["DraggableCore"], {
-                  allowAnyClick: true, grid: [width, height], cancel: ".draggable-cancel", onStart: this$1.handleDragStart(day, ii), onDrag: this$1.handleDrag.bind(this$1), onStop: this$1.handleDragStop.bind(this$1), key: ii }, 
+                  allowAnyClick: true, grid: [width, height], cancel: ".draggable-cancel", onStart: this$1.handleDragStart(day, ii), onDrag: this$1.handleDrag.bind(this$1), onStop: this$1.handleDragStop.bind(this$1), key: ii },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { onDoubleClick: this$1.handleEdit(day, ii), className: "timesheet__overlay", style: {
                       transform: ("translateY(" + (height * times.findIndex(function (time) { return time.start.isSame(schedule.start); })) + "px)"),
                       height: height * __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__getIncrementDifference__["a" /* default */])(schedule.start, schedule.end, this$1.props.time.increment)
-                    } }, 
+                    } },
 
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'h4', null, schedule.data.section.name ), 
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'h4', null, schedule.data.subject.name ), 
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'h4', null, schedule.data.professor.name ), 
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'h6', { className: "timesheet__overlay-other" }, schedule.data.section.name || 'Section Name'),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'h4', { className: "timesheet__overlay-title" }, schedule.data.subject.name || 'Subject Name'),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'h6', { className: "timesheet__overlay-other" }, schedule.data.professor.name || 'Professor Name'),
 
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( __WEBPACK_IMPORTED_MODULE_1_react_draggable__["DraggableCore"], {
-                      allowAnyClick: true, grid: [width, height], onStart: this$1.handleResizeStart(day, ii), onDrag: this$1.handleResize, onStop: this$1.handleResizeStop }, 
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet__overlay-resizer draggable-cancel" }, "Drag")
+                      allowAnyClick: true, grid: [width, height], onStart: this$1.handleResizeStart(day, ii), onDrag: this$1.handleResize, onStop: this$1.handleResizeStop },
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'div', { className: "timesheet__overlay-resizer draggable-cancel" })
                     )
                   )
                 ); }
               )
             ); }
-          ), 
+          ),
 
           editing &&
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( __WEBPACK_IMPORTED_MODULE_8_react_click_outside___default.a, { onClickOutside: this.handleCancelEdit, className: "timesheet__popover draggable-cancel", style: {
                 top: (height * (edit.time)) + 30,
                 left: (width * (Object.keys(this.state.schedules).findIndex(function (day) { return edit.day === day; }) + 1)) + 75
-              } }, 
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'input', { autoFocus: true, type: "text", valueLink: __WEBPACK_IMPORTED_MODULE_2_react_link_state___default()(this, ("schedules." + (edit.day) + "." + (edit.index) + ".data.section.name")), className: "form-input", placeholder: "Section Name" }), 
+              } },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'input', { autoFocus: true, type: "text", valueLink: __WEBPACK_IMPORTED_MODULE_2_react_link_state___default()(this, ("schedules." + (edit.day) + "." + (edit.index) + ".data.section.name")), className: "form-input", placeholder: "Section Name" }),
 
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'input', { autoFocus: true, type: "text", valueLink: __WEBPACK_IMPORTED_MODULE_2_react_link_state___default()(this, ("schedules." + (edit.day) + "." + (edit.index) + ".data.subject.name")), className: "form-input", placeholder: "Subject Name" }), 
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'input', { type: "text", valueLink: __WEBPACK_IMPORTED_MODULE_2_react_link_state___default()(this, ("schedules." + (edit.day) + "." + (edit.index) + ".data.subject.name")), className: "form-input", placeholder: "Subject Name" }),
 
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'input', { autoFocus: true, type: "text", valueLink: __WEBPACK_IMPORTED_MODULE_2_react_link_state___default()(this, ("schedules." + (edit.day) + "." + (edit.index) + ".data.professor.name")), className: "form-input", placeholder: "Professor Name" })
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement( 'input', { type: "text", valueLink: __WEBPACK_IMPORTED_MODULE_2_react_link_state___default()(this, ("schedules." + (edit.day) + "." + (edit.index) + ".data.professor.name")), className: "form-input", placeholder: "Professor Name" })
             )
         )
       )
@@ -40557,10 +40550,12 @@ var Timesheet = (function (superclass) {
     var times = ref.times;
     var day = schedules[dest.day];
     var last = times[times.length -1];
+    // Check if start and end time are not the same
     // Check if there are overlapping schedules
     // Must start before and after start
     // Must end before and after end
-    return dest.end.isSameOrBefore(last.end) && !day.find(function (schedule) { return dest.schedule !== schedule &&
+    return dest.start.isBefore(dest.end) &&
+      dest.end.isSameOrBefore(last.end) && !day.find(function (schedule) { return dest.schedule !== schedule &&
       ((dest.start.isSameOrAfter(schedule.start) &&
       dest.start.isSameOrBefore(schedule.end) &&
       dest.end.isSameOrAfter(schedule.start) &&
