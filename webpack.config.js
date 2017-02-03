@@ -5,7 +5,9 @@ module.exports = {
     path: './dist',
     filename: process.env.NODE_ENV === 'production'
       ? 'react-timesheet.min.js'
-      : 'react-timesheet.js'
+      : 'react-timesheet.js',
+    libraryTarget: 'umd',
+    library: 'ReactTimesheet'
   },
 
   module: {

@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["ReactTimesheet"] = factory();
+	else
+		root["ReactTimesheet"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 
@@ -40812,6 +40822,8 @@ var Timesheet = (function (superclass) {
   return Timesheet;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component));
 
+/* harmony default export */ exports["default"] = Timesheet;
+
 Timesheet.propTypes = {
   time: __WEBPACK_IMPORTED_MODULE_0_react__["PropTypes"].shape({
     start: __WEBPACK_IMPORTED_MODULE_0_react__["PropTypes"].string.isRequired,
@@ -40841,4 +40853,6 @@ Timesheet.defaultProps = {
 /* harmony default export */ exports["default"] = Timesheet;
 
 /***/ }
-/******/ ]);
+/******/ ])
+});
+;
