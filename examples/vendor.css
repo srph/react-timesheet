@@ -19,7 +19,7 @@
 }
 
 .timesheet__heading-column--narrow {
-  width: 75px;
+  width: 150px;
 }
 
 .timesheet__column {
@@ -30,12 +30,14 @@
 }
 
 .timesheet__column--narrow {
-  width: 75px;
+  width: 150px;
+  border-right: 0;
+  background: #e3e5ef;
 }
 
 .timesheet__item {
   height: 125px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px dotted #ddd;
 }
 
 .timesheet__time {
@@ -45,6 +47,7 @@
   padding: 10px;
   font-size: 12px;
   height: 100%;
+  color: #868686;
 }
 
 .timesheet__overlay {
