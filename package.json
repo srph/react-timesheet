@@ -1,16 +1,22 @@
 {
   "name": "react-timesheet",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "An opinionated timesheet component for React",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --verbose --progress",
+    "build:production": "cross-env NODE_ENV=production webpack -p --verbose --colors --progress",
     "example:start": "webpack --config=examples/webpack.config.js --verbose --progress",
     "example:watch": "webpack --config=examples/webpack.config.js --verbose --progress -w",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "npm run build && npm run build:production"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "react",
+    "timesheet"
+  ],
+  "author": "Kier Borromeo <seraphipod@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.15.3",
     "lodash": "^4.17.4",
@@ -25,6 +31,7 @@
   "devDependencies": {
     "buble": "^0.14.0",
     "buble-loader": "^0.3.1",
+    "cross-env": "^3.1.4",
     "webpack": "2.1.0-beta.25"
   }
 }
