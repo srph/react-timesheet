@@ -20,19 +20,15 @@ module.exports = {
           modules: false
         }
       }
+    }, {
+      test: /$\.js/,
+      exclude: /node_modules/,
+      loader: 'imports-loader?react=React,react-dom=ReactDOM',
     }]
-  }
+  },
 
-  // module: {
-  //   loaders: [{
-  //     test: /$\.js/,
-  //     exclude: /node_modules/,
-  //     loader: 'imports-loader?$=jquery,@srph/jqt=>null',
-  //   }]
-  // },
-
-  // externals: [{
-  //   jquery: 'jQuery',
-  //   '@srph/jqt': 'jQuery'
-  // }]
+  externals: [{
+    'react': 'React',
+    'react-dom': 'ReactDOM'
+  }]
 };
