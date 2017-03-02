@@ -114,6 +114,22 @@
   margin-bottom: 5px;
 }
 
+.timesheet__overlay--current {
+  background: #58da86;
+}
+
+.timesheet__overlay--current .timesheet__overlay-other {
+  color: #338650;
+}
+
+.timesheet__overlay--done {
+  background: #ccced8;
+}
+
+.timesheet__overlay--done .timesheet__overlay-other {
+  color: #383A48;
+}
+
 .timesheet__popover {
   position: absolute;
   width: 250px;
