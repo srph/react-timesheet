@@ -122,8 +122,18 @@
   color: #338650;
 }
 
+.timesheet__overlay--current .timesheet__overlay-resizer::before,
+.timesheet__overlay--current .timesheet__overlay-resizer::after {
+  background: #338650;
+}
+
 .timesheet__overlay--done {
   background: #ccced8;
+}
+
+.timesheet__overlay--done .timesheet__overlay-resizer::before,
+.timesheet__overlay--done .timesheet__overlay-resizer::after {
+  background: #383A48;
 }
 
 .timesheet__overlay--done .timesheet__overlay-other {
