@@ -6,8 +6,8 @@
   "scripts": {
     "build": "webpack --verbose --progress",
     "build:production": "cross-env NODE_ENV=production webpack -p --verbose --colors --progress",
-    "example:start": "webpack --config=examples/webpack.config.js --verbose --progress",
-    "example:watch": "webpack --config=examples/webpack.config.js --verbose --progress -w",
+    "example:start": "webpack --config=examples/webpack.config.js --progress",
+    "example:watch": "webpack --config=examples/webpack.config.js --progress -w",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "npm run build && npm run build:production"
   },
@@ -18,7 +18,6 @@
   "author": "Kier Borromeo <seraphipod@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.15.3",
     "lodash": "^4.17.4",
     "moment": "^2.15.1",
     "react": "^15.3.2",
@@ -30,8 +29,11 @@
     "react-select": "^1.0.0-rc.3"
   },
   "devDependencies": {
-    "buble": "^0.14.0",
-    "buble-loader": "^0.3.1",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
     "cross-env": "^3.1.4",
     "webpack": "2.1.0-beta.25"
   }

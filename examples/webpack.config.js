@@ -10,12 +10,7 @@ module.exports = {
     loaders: [{
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'buble',
-      query: {
-        transforms: {
-          modules: false
-        }
-      }
+      loader: 'babel',
     }]
   }
 };
