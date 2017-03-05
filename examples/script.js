@@ -69,17 +69,28 @@ class App extends React.Component {
     });
   }
 
-  handleUpdate = (day, index, schedule) => {
+  handleUpdate = (day, index, schedule, dest = day) => {
     const {schedules} = this.state;
+    console.log(day, dest);
 
-    this.setState({
-      schedules: {
-        ...schedules,
-        [day]: schedules[day].map((_, i) => {
-          return i === index ? schedule : _;
-        })
-      }
-    });
+    if (dest === day) {
+      this.setState({
+        schedules: {
+          ...schedules,
+          [day]: schedules[day].map((_, i) => {
+            return i === index ? schedule : _;
+          })
+        }
+      });
+    } else {
+      this.setState({
+        schedules: {
+          ...schedules,
+          [day]: schedules[day].filter((_, i) => i !== index),
+          [dest]: [...schedules[dest], schedule]
+        }
+      });
+    }
   }
 }
 
