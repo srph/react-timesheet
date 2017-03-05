@@ -10,11 +10,8 @@ Currently ad-hoc for a private school application I'm working on.
 - [x] New schedule
 - [x] Edit schedule
 - [x] Drag-n-drop schedule
+- [x] Schedule validation
 - [x] Typehead
-- [ ] Async persistence
-- [ ] Async fetch
-- [ ] Handle loading
-- [ ] Handle errors
 
 ## Installing
 ```bash
