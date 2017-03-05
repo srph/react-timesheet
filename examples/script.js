@@ -60,7 +60,7 @@ class App extends React.Component {
 
   handleStore = (day, schedule) => {
     const {schedules} = this.state;
-    console.log(schedule);
+
     this.setState({
       schedules: {
         ...schedules,
