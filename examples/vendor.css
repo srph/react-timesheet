@@ -185,23 +185,6 @@
   border-bottom-right-radius: 4px;
 }
 
-.form-input {
-  display: block;
-  padding: 8px 5px;
-  margin: 0;
-  margin-bottom: 10px;
-  width: 100%;
-  background: #fff;
-  border: 1px solid #ddd;
-  outline: 0;
-}
-
-.form-input:focus,
-.form-input:hover {
-  border-color: #6dbdf3;
-  transition: 0.2s border-color ease;
-}
-
 .u-spacer {
   margin-bottom: 8px;
 }
