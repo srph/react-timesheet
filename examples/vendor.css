@@ -66,6 +66,17 @@
   background: #383A48;
 }
 
+.timesheet__overlay-status {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  padding: 4px;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
 .timesheet__overlay:hover .timesheet__overlay-resizer {
   opacity: 1;
 }
@@ -127,6 +138,11 @@
   background: #338650;
 }
 
+.timesheet__overlay--current .timesheet__overlay-status {
+  color: #58da86;
+  background: #338650;
+}
+
 .timesheet__overlay--done {
   background: #ccced8;
 }
@@ -138,6 +154,11 @@
 
 .timesheet__overlay--done .timesheet__overlay-other {
   color: #383A48;
+}
+
+.timesheet__overlay--done .timesheet__overlay-status {
+  color: #ccced8;
+  background: #383A48;
 }
 
 .timesheet__popover {
