@@ -27,8 +27,46 @@ class App extends React.Component {
         }
       }],
 
-      'Room #14 A': [],
-      'Room #14 B': []
+      'Room #14 A': [{
+        start: moment('10:00 am', 'hh:mm a'),
+        end: moment('1:00 pm', 'hh:mm a'),
+        data: {
+          subject: {
+            id: 1,
+            name: 'Introduction to Software Engineering'
+          },
+
+          professor: {
+            id: 2,
+            name: 'Win Gatchalian'
+          },
+
+          section: {
+            id: 1,
+            name: 'BSIT 4 Block D'
+          }
+        }
+      }],
+      'Room #14 B': [{
+        start: moment('10:00 am', 'hh:mm a'),
+        end: moment('1:00 pm', 'hh:mm a'),
+        data: {
+          subject: {
+            id: 1,
+            name: 'Introduction to Software Engineering'
+          },
+
+          professor: {
+            id: 2,
+            name: 'Win Gatchalian'
+          },
+
+          section: {
+            id: 1,
+            name: 'BSIT 4 Block D'
+          }
+        }
+      }]
     }
   };
 
