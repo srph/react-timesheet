@@ -206,6 +206,10 @@
   border-bottom-right-radius: 4px;
 }
 
+.timesheet--disabled .timesheet__overlay {
+  cursor: default;
+}
+
 .u-spacer {
   margin-bottom: 8px;
 }
