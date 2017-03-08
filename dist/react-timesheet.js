@@ -18049,7 +18049,7 @@ var Popover = function (_Component) {
       evt.preventDefault();
 
       _this.props.onSubmit(_extends({}, _this.props.schedule, {
-        data: _this.state
+        data: _extends({}, _this.props.schedule.data, _this.state)
       }));
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
