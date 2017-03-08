@@ -20458,6 +20458,9 @@ var Timesheet = function (_React$Component) {
                   key: ii });
               }),
               schedules[day].map(function (schedule, ii) {
+                var current = now.isSameOrAfter(schedule.start) && now.isSameOrBefore(schedule.end);
+                var done = now.isAfter(schedule.end);
+
                 return _react2.default.createElement(
                   _DraggableLayer2.default,
                   {
@@ -20473,8 +20476,8 @@ var Timesheet = function (_React$Component) {
                     'div',
                     { onDoubleClick: _this2.handleEdit(day, ii),
                       className: (0, _classnames2.default)('timesheet__overlay', {
-                        'timesheet__overlay--current': now.isSameOrAfter(schedule.start) && now.isSameOrBefore(schedule.end),
-                        'timesheet__overlay--done': now.isAfter(schedule.end)
+                        'timesheet__overlay--current': current,
+                        'timesheet__overlay--done': done
                       }),
                       style: {
                         transform: 'translateY(' + _settings.height * times.findIndex(function (time) {
@@ -20482,6 +20485,11 @@ var Timesheet = function (_React$Component) {
                         }) + 'px)',
                         height: _settings.height * (0, _getIncrementDifference2.default)(schedule.start, schedule.end, _this2.props.time.increment)
                       } },
+                    (current || done) && _react2.default.createElement(
+                      'div',
+                      { className: 'timesheet__overlay-status' },
+                      current ? 'On-going' : 'Done'
+                    ),
                     _react2.default.createElement(
                       'h6',
                       { className: 'timesheet__overlay-other' },
