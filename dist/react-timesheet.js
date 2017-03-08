@@ -20405,13 +20405,16 @@ var Timesheet = function (_React$Component) {
           time = _props.time,
           professors = _props.professors,
           subjects = _props.subjects,
-          sections = _props.sections;
+          sections = _props.sections,
+          disabled = _props.disabled;
 
       var now = (0, _moment2.default)();
 
       return _react2.default.createElement(
         'div',
-        { className: 'timesheet' },
+        { className: (0, _classnames2.default)('timesheet', {
+            'timesheet--disabled': disabled
+          }) },
         _react2.default.createElement(
           'div',
           { className: 'timesheet__heading' },
@@ -20461,6 +20464,54 @@ var Timesheet = function (_React$Component) {
                 var current = now.isSameOrAfter(schedule.start) && now.isSameOrBefore(schedule.end);
                 var done = now.isAfter(schedule.end);
 
+                var content = _react2.default.createElement(
+                  'div',
+                  { onDoubleClick: _this2.handleEdit(day, ii),
+                    className: (0, _classnames2.default)('timesheet__overlay', {
+                      'timesheet__overlay--current': current,
+                      'timesheet__overlay--done': done
+                    }),
+                    style: {
+                      transform: 'translateY(' + _settings.height * times.findIndex(function (time) {
+                        return time.start.isSame(schedule.start);
+                      }) + 'px)',
+                      height: _settings.height * (0, _getIncrementDifference2.default)(schedule.start, schedule.end, _this2.props.time.increment)
+                    },
+                    key: ii },
+                  (current || done) && _react2.default.createElement(
+                    'div',
+                    { className: 'timesheet__overlay-status' },
+                    current ? 'On-going' : 'Done'
+                  ),
+                  _react2.default.createElement(
+                    'h6',
+                    { className: 'timesheet__overlay-other' },
+                    schedule.data.section.name || 'Section Name'
+                  ),
+                  _react2.default.createElement(
+                    'h4',
+                    { className: 'timesheet__overlay-title' },
+                    schedule.data.subject.name || 'Subject Name'
+                  ),
+                  _react2.default.createElement(
+                    'h6',
+                    { className: 'timesheet__overlay-other' },
+                    schedule.data.professor.name || 'Professor Name'
+                  ),
+                  !disabled && _react2.default.createElement(_Resizer2.default, {
+                    schedules: schedules,
+                    schedule: schedule,
+                    source: { day: day, index: ii },
+                    time: time,
+                    times: times,
+                    validate: _this2.validate,
+                    onResize: _this2.handleResize })
+                );
+
+                if (disabled) {
+                  return content;
+                }
+
                 return _react2.default.createElement(
                   _DraggableLayer2.default,
                   {
@@ -20472,53 +20523,12 @@ var Timesheet = function (_React$Component) {
                     validate: _this2.validate,
                     onDrag: _this2.handleDrag,
                     key: ii },
-                  _react2.default.createElement(
-                    'div',
-                    { onDoubleClick: _this2.handleEdit(day, ii),
-                      className: (0, _classnames2.default)('timesheet__overlay', {
-                        'timesheet__overlay--current': current,
-                        'timesheet__overlay--done': done
-                      }),
-                      style: {
-                        transform: 'translateY(' + _settings.height * times.findIndex(function (time) {
-                          return time.start.isSame(schedule.start);
-                        }) + 'px)',
-                        height: _settings.height * (0, _getIncrementDifference2.default)(schedule.start, schedule.end, _this2.props.time.increment)
-                      } },
-                    (current || done) && _react2.default.createElement(
-                      'div',
-                      { className: 'timesheet__overlay-status' },
-                      current ? 'On-going' : 'Done'
-                    ),
-                    _react2.default.createElement(
-                      'h6',
-                      { className: 'timesheet__overlay-other' },
-                      schedule.data.section.name || 'Section Name'
-                    ),
-                    _react2.default.createElement(
-                      'h4',
-                      { className: 'timesheet__overlay-title' },
-                      schedule.data.subject.name || 'Subject Name'
-                    ),
-                    _react2.default.createElement(
-                      'h6',
-                      { className: 'timesheet__overlay-other' },
-                      schedule.data.professor.name || 'Professor Name'
-                    ),
-                    _react2.default.createElement(_Resizer2.default, {
-                      schedules: schedules,
-                      schedule: schedule,
-                      source: { day: day, index: ii },
-                      time: time,
-                      times: times,
-                      validate: _this2.validate,
-                      onResize: _this2.handleResize })
-                  )
+                  content
                 );
               })
             );
           }),
-          editing && _react2.default.createElement(_Popover2.default, {
+          !disabled && editing && _react2.default.createElement(_Popover2.default, {
             schedules: schedules,
             schedule: schedules[edit.day][edit.index],
             source: edit,
@@ -20549,6 +20559,10 @@ var Timesheet = function (_React$Component) {
       var _this3 = this;
 
       return function () {
+        if (_this3.props.disabled) {
+          return;
+        }
+
         var _state2 = _this3.state,
             schedules = _state2.schedules,
             times = _state2.times;
@@ -20589,6 +20603,10 @@ var Timesheet = function (_React$Component) {
       var _this4 = this;
 
       return function () {
+        if (_this4.props.disabled) {
+          return;
+        }
+
         var _state3 = _this4.state,
             schedules = _state3.schedules,
             times = _state3.times;
@@ -20624,7 +20642,11 @@ Timesheet.propTypes = {
   subjects: _react.PropTypes.array.isRequired,
   professors: _react.PropTypes.array.isRequired,
   onStore: _react.PropTypes.func.isRequired,
-  onUpdate: _react.PropTypes.func.isRequired
+  onUpdate: _react.PropTypes.func.isRequired,
+  disabled: _react.PropTypes.bool
+};
+Timesheet.defaultProps = {
+  disabled: false
 };
 exports.default = Timesheet;
 
