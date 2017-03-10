@@ -2,6 +2,20 @@
   box-sizing: border-box;
 }
 
+.timesheet__scale {
+  display: inline-block;
+  margin-bottom: 4px;
+  background: #fff;
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  outline: 0;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .timesheet__body,
 .timesheet__heading {
   display: flex;
