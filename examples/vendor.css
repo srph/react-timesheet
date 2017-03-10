@@ -210,6 +210,26 @@
   cursor: default;
 }
 
+.timesheet--scaled .timesheet__column,
+.timesheet--scaled .timesheet__heading-column {
+  width: 48px;
+}
+
+.timesheet--scaled .timesheet__heading-column,
+.timesheet--scaled .timesheet__time {
+  font-size: 10px;
+}
+
+.timesheet--scaled .timesheet__item,
+.timesheet--scaled .timesheet__overlay {
+  height: 48px;
+}
+
+.timesheet--scaled .timesheet__heading-column--narrow,
+.timesheet--scaled .timesheet__column--narrow {
+  width: 75px;
+}
+
 .u-spacer {
   margin-bottom: 8px;
 }

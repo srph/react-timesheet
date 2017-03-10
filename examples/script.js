@@ -109,7 +109,6 @@ class App extends React.Component {
 
   handleUpdate = (day, index, schedule, dest = day) => {
     const {schedules} = this.state;
-    console.log(day, dest);
 
     if (dest === day) {
       this.setState({
