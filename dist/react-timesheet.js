@@ -20469,7 +20469,7 @@ var Timesheet = function (_React$Component) {
       hover: null,
       // Flag if we're hovering on a schedule
       hovering: false,
-      now: (0, _moment2.default)('2:00 pm', 'hh:mm a')
+      now: (0, _moment2.default)()
     }, _this.validate = function (dest) {
       var _this$state = _this.state,
           schedules = _this$state.schedules,
