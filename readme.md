@@ -12,6 +12,8 @@ Currently ad-hoc for a private school application I'm working on.
 - [x] Drag-n-drop schedule
 - [x] Schedule validation
 - [x] Typehead
+- [x] Schedule status (on-going, done)
+- [x] Scale
 
 ## Installing
 ```bash
