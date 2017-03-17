@@ -20607,7 +20607,8 @@ var Timesheet = function (_React$Component) {
           professors = _props.professors,
           subjects = _props.subjects,
           sections = _props.sections,
-          disabled = _props.disabled;
+          disabled = _props.disabled,
+          corny = _props.corny;
 
       var height = scaled ? _settings2.default.scaled : _settings2.default.height;
       var width = scaled ? _settings2.default.scaled : _settings2.default.width;
@@ -20720,7 +20721,16 @@ var Timesheet = function (_React$Component) {
                       times: times,
                       scaled: scaled,
                       validate: _this3.validate,
-                      onResize: _this3.handleResize })
+                      onResize: _this3.handleResize }),
+                    corny && !scaled && _react2.default.createElement(
+                      'div',
+                      { className: 'timesheet__overlay-time' },
+                      schedule.start.format('hh:mm a'),
+                      ' ',
+                      _react2.default.createElement('br', null),
+                      ' ',
+                      schedule.end.format('hh:mm a')
+                    )
                   )
                 );
 
@@ -20872,7 +20882,8 @@ Timesheet.propTypes = {
   professors: _react.PropTypes.array.isRequired,
   onStore: _react.PropTypes.func.isRequired,
   onUpdate: _react.PropTypes.func.isRequired,
-  disabled: _react.PropTypes.bool
+  disabled: _react.PropTypes.bool,
+  corny: _react.PropTypes.bool
 };
 Timesheet.defaultProps = {
   disabled: false
