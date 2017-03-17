@@ -235,7 +235,7 @@
   border-bottom-right-radius: 4px;
 }
 
-.timesheet--disabled .timesheet__overlay {
+.timesheet--disabled .timesheet__overlay-inner {
   cursor: default;
 }
 
