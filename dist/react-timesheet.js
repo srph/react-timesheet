@@ -18137,7 +18137,8 @@ var HoverCard = function (_Component) {
           source = _props.source,
           schedules = _props.schedules,
           current = _props.current,
-          done = _props.done;
+          done = _props.done,
+          corny = _props.corny;
 
       var top = _settings2.default.scaled * source.time + -45;
       var left = _settings2.default.scaled * (Object.keys(schedules).findIndex(function (day) {
@@ -18171,6 +18172,15 @@ var HoverCard = function (_Component) {
             'h6',
             { className: 'timesheet__overlay-other' },
             schedule.data.professor.name || 'Professor Name'
+          ),
+          corny && _react2.default.createElement(
+            'div',
+            { className: 'timesheet__overlay-time' },
+            schedule.start.format('hh:mm a'),
+            ' ',
+            _react2.default.createElement('br', null),
+            ' ',
+            schedule.end.format('hh:mm a')
           )
         )
       );
@@ -20770,6 +20780,7 @@ var Timesheet = function (_React$Component) {
             ref: function ref(c) {
               return _this3.hover = c;
             },
+            corny: corny,
             schedules: schedules,
             schedule: schedules[hover.day][hover.index],
             source: hover,
