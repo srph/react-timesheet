@@ -73,26 +73,26 @@ class App extends React.Component {
   render() {
     return (
       <Timesheet
-          time={{
-            start: '10:00 AM',
-            end: '10:00 PM',
-            increment: { hours: 1, minutes: 30 }
-          }}
-          schedules={this.state.schedules}
-          sections={[{
-            value: 1,
-            label: 'Hello'
-          }]}
-          subjects={[{
-            value: 1,
-            label: 'Hello'
-          }]}
-          professors={[{
-            value: 1,
-            label: 'Hello'
-          }]}
-          onStore={this.handleStore}
-          onUpdate={this.handleUpdate} />
+        time={{
+          start: '10:00 AM',
+          end: '10:00 PM',
+          increment: { hours: 1, minutes: 30 }
+        }}
+        schedules={this.state.schedules}
+        sections={[{
+          value: 1,
+          label: 'Hello'
+        }]}
+        subjects={[{
+          value: 1,
+          label: 'Hello'
+        }]}
+        professors={[{
+          value: 1,
+          label: 'Hello'
+        }]}
+        onStore={this.handleStore}
+        onUpdate={this.handleUpdate} />
     );
   }
 
