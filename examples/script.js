@@ -73,7 +73,6 @@ class App extends React.Component {
   render() {
     return (
       <Timesheet
-        corny
           time={{
             start: '10:00 AM',
             end: '10:00 PM',
