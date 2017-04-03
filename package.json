@@ -27,8 +27,7 @@
     "react-draggable": "^2.2.2",
     "react-link-state": "^0.1.2",
     "react-resizable": "^1.4.5",
-    "react-select": "^1.0.0-rc.3",
-    "react-tooltip": "^3.2.10"
+    "react-select": "^1.0.0-rc.3"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
