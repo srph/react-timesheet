@@ -9,6 +9,16 @@ class App extends React.Component {
       'Room #13': [{
         start: moment('10:00 am', 'hh:mm a'),
         end: moment('11:30 am', 'hh:mm a'),
+        request: true,
+        requester: {
+          id: 2,
+          department: {
+            name: 'BEIT'
+          },
+          user: {
+            name: 'Loser Gatchalian'
+          }
+        },
         data: {
           subject: {
             id: 1,
@@ -73,6 +83,16 @@ class App extends React.Component {
   render() {
     return (
       <Timesheet
+        request
+        requester={{
+          id: 1,
+          department: {
+            name: 'CSIT'
+          },
+          user: {
+            name: 'Winner Gatchalian'
+          }
+        }}
         time={{
           start: '10:00 AM',
           end: '10:00 PM',
@@ -92,7 +112,8 @@ class App extends React.Component {
           label: 'Hello'
         }]}
         onStore={this.handleStore}
-        onUpdate={this.handleUpdate} />
+        onUpdate={this.handleUpdate}
+        onRequestAction={this.handleRequestAction} />
     );
   }
 
@@ -125,6 +146,34 @@ class App extends React.Component {
           ...schedules,
           [day]: schedules[day].filter((_, i) => i !== index),
           [dest]: [...schedules[dest], schedule]
+        }
+      });
+    }
+  }
+
+  handleRequestAction = (day, index, action) => {
+    const {schedules} = this.state;
+
+    if (action) {
+      this.setState({
+        schedules: {
+          ...schedules,
+          [day]: schedules[day].map((schedule, i) => {
+            return i === index ? {
+              ...schedule,
+              request: false,
+              requester: null
+            } : schedule;
+          })
+        }
+      });
+    } else {
+      this.setState({
+        schedules: {
+          ...schedules,
+          [day]: schedules[day].filter((schedule, i) => {
+            return i !== index;
+          })
         }
       });
     }
