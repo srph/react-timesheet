@@ -25601,7 +25601,7 @@ var Timesheet = function (_React$Component) {
                         )
                       ) : current ? 'On-going' : 'Done'
                     ),
-                    !scaled && !editing && !_this3.props.request && schedule.request && _this3.props.requester.id === schedule.requester.id && _react2.default.createElement(
+                    !scaled && !editing && !_this3.props.request && schedule.request && _react2.default.createElement(
                       'button',
                       { className: 'timesheet__overlay-action', onClick: _this3.handleRequestAction(day, ii, true) },
                       _react2.default.createElement(
@@ -25614,7 +25614,7 @@ var Timesheet = function (_React$Component) {
                         )
                       )
                     ),
-                    !scaled && !editing && schedule.request && _this3.props.requester.id === schedule.requester.id && _react2.default.createElement(
+                    !scaled && !editing && schedule.request && (!_this3.props.request || _this3.props.request && _this3.props.requester.id === schedule.requester.id) && _react2.default.createElement(
                       'button',
                       { className: (0, _classnames2.default)('timesheet__overlay-action', {
                           'timesheet__overlay-action--negative': !_this3.props.request
