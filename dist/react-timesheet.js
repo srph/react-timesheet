@@ -25825,10 +25825,6 @@ var Timesheet = function (_React$Component) {
       var _this6 = this;
 
       return function () {
-        if (!confirm('Are you sure to delete this schedule?')) {
-          return;
-        }
-
         _this6.props.onDelete(day, index);
       };
     }

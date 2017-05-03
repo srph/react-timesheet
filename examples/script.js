@@ -181,6 +181,10 @@ class App extends React.Component {
   }
 
   handleDelete = (day, index) => {
+    if (!confirm('Are you sure to delete this schedule?')) {
+      return;
+    }
+      
     const {schedules} = this.state;
     
     this.setState({
