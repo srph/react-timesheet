@@ -25629,6 +25629,20 @@ var Timesheet = function (_React$Component) {
                         )
                       )
                     ),
+                    !scaled && !editing && !schedule.request && !_this3.props.request && _react2.default.createElement(
+                      'button',
+                      { className: 'timesheet__overlay-action',
+                        onClick: _this3.handleDelete(day, ii) },
+                      _react2.default.createElement(
+                        _rcTooltip2.default,
+                        { overlay: 'Delete', placement: 'right' },
+                        _react2.default.createElement(
+                          'span',
+                          null,
+                          '\u2715'
+                        )
+                      )
+                    ),
                     !scaled && _react2.default.createElement(
                       'h6',
                       { className: 'timesheet__overlay-other' },
@@ -25806,12 +25820,25 @@ var Timesheet = function (_React$Component) {
       };
     }
   }, {
-    key: 'handleRequestAction',
-    value: function handleRequestAction(day, index, flag) {
+    key: 'handleDelete',
+    value: function handleDelete(day, index) {
       var _this6 = this;
 
       return function () {
-        _this6.props.onRequestAction(day, index, flag);
+        if (!confirm('Are you sure to delete this schedule?')) {
+          return;
+        }
+
+        _this6.props.onDelete(day, index);
+      };
+    }
+  }, {
+    key: 'handleRequestAction',
+    value: function handleRequestAction(day, index, flag) {
+      var _this7 = this;
+
+      return function () {
+        _this7.props.onRequestAction(day, index, flag);
         // Tooltip.hide()
         // Tooltip.show()
       };
@@ -25836,6 +25863,7 @@ Timesheet.propTypes = {
   professors: _react.PropTypes.array.isRequired,
   onStore: _react.PropTypes.func.isRequired,
   onUpdate: _react.PropTypes.func.isRequired,
+  onDelete: _react.PropTypes.func.isRequired,
   disabled: _react.PropTypes.bool,
   corny: _react.PropTypes.bool,
   request: _react.PropTypes.bool,
