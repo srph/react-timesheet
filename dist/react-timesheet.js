@@ -25507,6 +25507,8 @@ var Timesheet = function (_React$Component) {
       var height = scaled ? _settings2.default.scaled : _settings2.default.height;
       var width = scaled ? _settings2.default.scaled : _settings2.default.width;
 
+      console.log(disabled);
+
       return _react2.default.createElement(
         'div',
         { className: (0, _classnames2.default)('timesheet', {
@@ -25629,7 +25631,7 @@ var Timesheet = function (_React$Component) {
                         )
                       )
                     ),
-                    !scaled && !editing && !schedule.request && !_this3.props.request && _react2.default.createElement(
+                    !disabled && !scaled && !editing && !schedule.request && !_this3.props.request && _react2.default.createElement(
                       'button',
                       { className: 'timesheet__overlay-action',
                         onClick: _this3.handleDelete(day, ii) },

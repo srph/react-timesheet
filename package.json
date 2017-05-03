@@ -1,6 +1,6 @@
 {
   "name": "@srph/react-timesheet",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "An opinionated timesheet component for React",
   "main": "index.js",
   "scripts": {
