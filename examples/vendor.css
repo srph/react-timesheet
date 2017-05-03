@@ -101,20 +101,26 @@
 
 .timesheet__overlay-action {
   position: absolute;
-  top: 32px;
+  top: 4px;
   right: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 18px;
   width: 18px;
-  color: #A8DADC;
-  background: #1D3557;
+  color: #383A48;
+  background: #ccced8;
   padding: 0;
   font-size: 10px;
   border: 0;
   border-radius: 50%;
   cursor: pointer;
+  opacity: 0;
+}
+
+.timesheet__overlay:hover .timesheet__overlay-action {
+  opacity: 1;
+  transition: 200ms opacity ease;
 }
 
 .timesheet__overlay-action--negative {
@@ -194,6 +200,12 @@
   background: #338650;
 }
 
+.timesheet__overlay--current .timesheet__overlay-action {
+  top: 32px;
+  color: #58da86;
+  background: #338650;
+}
+
 .timesheet__overlay--done .timesheet__overlay-inner {
   background: #ccced8;
 }
@@ -208,6 +220,12 @@
 }
 
 .timesheet__overlay--done .timesheet__overlay-status {
+  color: #ccced8;
+  background: #383A48;
+}
+
+.timesheet__overlay--done .timesheet__overlay-action {
+  top: 32px;
   color: #ccced8;
   background: #383A48;
 }
@@ -228,6 +246,13 @@
 .timesheet__overlay--requested .timesheet__overlay-status {
   color: #A8DADC;
   background: #1D3557;
+}
+
+.timesheet__overlay--requested .timesheet__overlay-action {
+  top: 32px;
+  color: #A8DADC;
+  background: #1D3557;
+  opacity: 1;
 }
 
 .timesheet__popover {

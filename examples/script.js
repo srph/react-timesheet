@@ -83,7 +83,7 @@ class App extends React.Component {
   render() {
     return (
       <Timesheet
-        request
+        request={false}
         requester={{
           id: 1,
           department: {
@@ -113,6 +113,7 @@ class App extends React.Component {
         }]}
         onStore={this.handleStore}
         onUpdate={this.handleUpdate}
+        onDelete={this.handleDelete}
         onRequestAction={this.handleRequestAction} />
     );
   }
@@ -177,6 +178,19 @@ class App extends React.Component {
         }
       });
     }
+  }
+
+  handleDelete = (day, index) => {
+    const {schedules} = this.state;
+    
+    this.setState({
+      schedules: {
+        ...schedules,
+        [day]: schedules[day].filter((schedule, i) => {
+          return i !== index;
+        })
+      }
+    });
   }
 }
 
